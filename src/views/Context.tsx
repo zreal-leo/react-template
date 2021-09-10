@@ -47,6 +47,7 @@ class Context extends React.Component<
 }
 
 function Component() {
+  console.log("component");
   return <Child />;
 }
 

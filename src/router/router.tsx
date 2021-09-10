@@ -7,6 +7,9 @@ const Context = lazy(
   () => import(/* webpackChunkName: "Context" */ "../views/Context")
 );
 const Ref = lazy(() => import("../views/ref"));
+const Hoc = lazy(() => import("../views/Hoc"));
+const Portals = lazy(() => import("../views/Portals"));
+const Hook = lazy(() => import("../views/Hook"));
 
 const Router = () => (
   <ErrorCatch>
@@ -16,6 +19,10 @@ const Router = () => (
           <Route exact path="/" component={App} />
           <Route path="/context" component={Context} />
           <Route path="/ref" component={Ref} />
+          <Route path="/hoc" component={Hoc} />
+          <Route path="/portals" component={Portals} />
+          <Route path="/portals" component={Portals} />
+          <Route path="/hook" component={Hook} />
         </Switch>
       </Suspense>
     </BrowserRouter>
