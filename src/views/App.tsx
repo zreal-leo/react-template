@@ -6,7 +6,7 @@ const Input = lazy(() => import('./List'))
 
 function App() {
   // const [count, setCount] = useState(0);
-
+  console.log(12)
   return (
     <div className="App">
       <header className="App-header">
