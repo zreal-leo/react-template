@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react'
 
 class ListOfWords extends React.PureComponent<{ words: string[] }> {
   render() {
-    console.log("124");
-    return <div>{this.props.words.join(",")}</div>;
+    console.log('124')
+    return <div>{this.props.words.join(',')}</div>
   }
 }
 
 class WordAdder extends React.Component<{}, { words: string[] }> {
   constructor(props: {}) {
-    super(props);
+    super(props)
     this.state = {
-      words: ["marklar"],
-    };
-    this.handleClick = this.handleClick.bind(this);
+      words: ['marklar'],
+    }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick() {
@@ -21,11 +21,11 @@ class WordAdder extends React.Component<{}, { words: string[] }> {
     // const words = this.state.words;
     // words.push("marklar");
     // this.setState({ words: words });
-    this.setState((state) => {
+    this.setState(state => {
       return {
-        words: [...state.words, "marklar"],
-      };
-    });
+        words: [...state.words, 'marklar'],
+      }
+    })
   }
 
   render() {
@@ -34,8 +34,8 @@ class WordAdder extends React.Component<{}, { words: string[] }> {
         <ListOfWords words={this.state.words} />
         <button onClick={this.handleClick}>add</button>
       </div>
-    );
+    )
   }
 }
 
-export default WordAdder;
+export default WordAdder

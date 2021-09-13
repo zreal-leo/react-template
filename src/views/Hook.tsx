@@ -1,37 +1,45 @@
-import React, { useReducer } from "react";
-import { Button } from "antd";
+import React, { useState, useEffect, useCallback, memo } from 'react'
+import { Button } from 'antd'
 
-function init(initialCount) {
-  return { count: initialCount };
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "increment":
-      return { count: state.count + 1 };
-    case "decrement":
-      return { count: state.count - 1 };
-    case "reset":
-      return init(action.payload);
-    default:
-      throw new Error();
+function Counter() {
+  const add1 = () => {
+    console.log('add1')
+    setCount(count + 1)
   }
-}
 
-function Counter({ initialCount }) {
-  const [state, dispatch] = useReducer(reducer, initialCount, init);
+  const add2 = () => {
+    console.log('add2')
+  }
+
+  const back = useCallback(() => add2(), [])
+
+  const [count, setCount] = useState(0)
   return (
-    <>
-      Count: {state.count}
-      <button
-        onClick={() => dispatch({ type: "reset", payload: initialCount })}
-      >
-        Reset
-      </button>
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
-    </>
-  );
+    <div>
+      <div onClick={add1}>add1{count}</div>
+      <Son propEvent={back} />
+    </div>
+  )
 }
 
-export default Counter;
+// function Son(props: { propEvent: () => void }) {
+//   useEffect(() => {
+//     console.log("son effect");
+//   });
+
+//   console.log("son");
+
+//   return <div onClick={props.propEvent}>son</div>;
+// }
+
+const Son = memo((props: { propEvent: () => void }) => {
+  useEffect(() => {
+    console.log('son effect')
+  })
+
+  console.log('son')
+
+  return <div onClick={props.propEvent}>son</div>
+})
+
+export default Counter

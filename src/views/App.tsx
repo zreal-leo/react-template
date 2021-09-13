@@ -1,8 +1,8 @@
-import React, { useState, lazy, Suspense } from "react";
-import "./App.css";
-import Clock from "./Clock";
+import React, { useState, lazy, Suspense } from 'react'
+import './App.less'
+import Clock from './Clock'
 // import Input from "./List";
-const Input = lazy(() => import("./List"));
+const Input = lazy(() => import('./List'))
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -21,7 +21,7 @@ function App() {
         <Input></Input>
       </Suspense>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
