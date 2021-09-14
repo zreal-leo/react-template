@@ -32,7 +32,7 @@ function Counter() {
 //   return <div onClick={props.propEvent}>son</div>;
 // }
 
-const Son = memo((props: { propEvent: () => void }) => {
+const Son = memo(function Son(props: { propEvent: () => void }) {
   useEffect(() => {
     console.log('son effect')
   })

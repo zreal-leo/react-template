@@ -29,7 +29,8 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
-    'no-console': 1,
+    'no-console': 0,
+    'no-unused-vars': 0,
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

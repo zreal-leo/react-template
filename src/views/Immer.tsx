@@ -15,7 +15,7 @@ const TodoList = () => {
 
   // let length = useMemo(() => getLength(), [list]);
 
-  let length = getLength()
+  const length = getLength()
 
   return (
     <div>
