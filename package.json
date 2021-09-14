@@ -5,15 +5,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "eslint": "eslint src --ext .jsx,.js,.ts,.tsx",
+    "lint": "eslint src --ext .jsx,.js,.ts,.tsx",
     "prettier": "prettier --config ./.prettierrc --check src/**/* --ignore-path src/assets/* --ignore-unknown",
     "prettier:fix": "prettier --config ./.prettierrc --write src/**/* --ignore-path src/assets/* --ignore-unknown",
     "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*": [
-      "eslint",
-      "prettier"
+      "npm run lint",
+      "npm run prettier"
     ]
   },
   "dependencies": {
