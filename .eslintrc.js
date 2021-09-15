@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2020: true,
@@ -29,8 +30,8 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
-    'no-console': 0,
-    'no-unused-vars': 0,
+    'no-console': 1,
+    'no-unused-vars': 1,
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

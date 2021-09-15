@@ -1,34 +1,58 @@
-import React, { Suspense, lazy } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import ErrorCatch from '../views/Error'
+import React, { Suspense, lazy, useState } from 'react'
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
+import { Button } from 'antd'
+import './router.less'
 
-const App = lazy(() => import(/* webpackChunkName: "App" */ '../views/App'))
-const Context = lazy(() => import(/* webpackChunkName: "Context" */ '../views/Context'))
-const Ref = lazy(() => import('../views/ref'))
-const Hoc = lazy(() => import('../views/Hoc'))
-const Portals = lazy(() => import('../views/Portals'))
-const Hook = lazy(() => import('../views/Hook'))
-const Memo = lazy(() => import('../views/Memo'))
-const Immer = lazy(() => import('../views/Immer'))
+import ErrorCatch from '@/views/Error'
+import App from '@/views/app/App'
+const About = lazy(() => import('@/views/about/About'))
 
-const Router = () => (
-  <ErrorCatch>
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+function Layout() {
+  const history = useHistory()
+  const [tab, setTab] = useState(0)
+
+  function toHome() {
+    setTab(0)
+    history.push('/')
+  }
+  function toAbout() {
+    setTab(1)
+    history.push('/about')
+  }
+
+  return (
+    <div className="layout">
+      <div className="link">
+        <Button type="link" onClick={toHome} className={tab === 0 ? 'active' : ''}>
+          home
+        </Button>
+        <Button type="link" onClick={toAbout} className={tab === 1 ? 'active' : ''}>
+          About
+        </Button>
+      </div>
+      <div className="content">
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/context" component={Context} />
-          <Route path="/ref" component={Ref} />
-          <Route path="/hoc" component={Hoc} />
-          <Route path="/portals" component={Portals} />
-          <Route path="/portals" component={Portals} />
-          <Route path="/hook" component={Hook} />
-          <Route path="/memo" component={Memo} />
-          <Route path="/immer" component={Immer} />
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
         </Switch>
-      </Suspense>
-    </BrowserRouter>
-  </ErrorCatch>
-)
+      </div>
+    </div>
+  )
+}
 
+function Router() {
+  return (
+    <ErrorCatch>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Layout />
+        </Suspense>
+      </BrowserRouter>
+    </ErrorCatch>
+  )
+}
 export default Router

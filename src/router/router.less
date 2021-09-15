@@ -1,0 +1,26 @@
+.layout {
+  padding-top: 100px;
+  position: relative;
+  height: 100vh;
+  .link {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    height: 40px;
+    transform: translateX(-50%);
+
+    .ant-btn-link {
+      color: #000;
+      &.active {
+        color: #1890ff;
+      }
+    }
+  }
+  .content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 140px;
+    bottom: 0;
+  }
+}
