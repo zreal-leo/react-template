@@ -6,6 +6,6 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   plugins: [reactRefresh(), WindiCSS()],
   resolve: {
-    alias: { '@': '/src' },
-  },
+    alias: { '@': '/src' }
+  }
 })

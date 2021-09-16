@@ -4,7 +4,7 @@ class ErrorCatch extends React.Component<{}, { error: boolean }> {
   constructor(props: {}) {
     super(props)
     this.state = {
-      error: false,
+      error: false
     }
   }
 

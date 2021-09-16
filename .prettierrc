@@ -6,5 +6,6 @@
   "arrowParens": "avoid",
   "printWidth": 120,
   "proseWrap": "never",
-  "endOfLine": "crlf"
+  "endOfLine": "crlf",
+  "trailingComma": "none"
 }
